@@ -7,3 +7,15 @@
 * https://www.youtube.com/watch?v=gDOu_Su1GqY
 
 Creating  Auto Complete System Frontend Flask + Backend (Elastic Search)
+
+TO RUN 
+
+```
+cd kibana-7.17.7-linux-x86_64/
+./bin/kibana
+```
+
+```
+cd elasticsearch-7.17.7/
+./bin/elasticsearch
+```
