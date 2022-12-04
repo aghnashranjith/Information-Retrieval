@@ -17,11 +17,11 @@ def pipe():
     data = request.form.get("data")
     payload = {}
     headers= {}
-    url = "http://127.0.0.1:5601/autocomplete?query="+str(data)
-    response = requests.request("GET", url, headers=headers, data = payload)
+    url = "http://127.0.0.1:5000/autocomplete?query="+str(data)
+    response = requests.request("GET", url, headers=headers, data = data)
     return response.json()
 
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=9200
+    app.run(debug=True, port=5000)

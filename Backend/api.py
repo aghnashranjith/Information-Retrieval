@@ -71,7 +71,7 @@ class Controller(Resource):
         }
 
     def get(self):
-        res = es.search(index=scifi, size=0, body=self.baseQuery)
+        res = es.search(index=scifi, body=self.baseQuery)
         return res
 
 
@@ -82,4 +82,4 @@ api.add_resource(Controller, '/autocomplete')
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5601)
+    app.run(debug=True, port=5000)

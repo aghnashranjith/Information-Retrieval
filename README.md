@@ -13,9 +13,11 @@ TO RUN
 ```
 cd kibana-7.17.7-linux-x86_64/
 ./bin/kibana
+http://127.0.0.1:5601/
 ```
 
 ```
 cd elasticsearch-7.17.7/
 ./bin/elasticsearch
+http://127.0.0.1:9600/
 ```
