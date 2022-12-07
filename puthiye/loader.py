@@ -21,5 +21,12 @@ print(f"Connected to ElasticSearch cluster `{es.info().body['cluster_name']}`")
 with open('./scrapped.json') as f:
     data = json.load(f)
 
-for docs in data["key"]:
-    print(len(docs["subheadings"]))
+docs = data["key"]
+
+for doc in docs:
+    document = {
+        "headings" : doc["headings"],
+        "subheadings" : doc["subheadings"],
+        "paras" : doc["paras"]
+    }
+    es.index(index="scififilms", document=document)
