@@ -65,7 +65,7 @@ for link in literally_all_links:
     doc['headings'] = headings
     doc['subheadings'] = subheadings
     doc['paras'] = paras
-
+    doc['link'] = link
     docs.append(doc)
 docu = { "key" : docs }
 dataset = json.dumps(docu)
