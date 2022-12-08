@@ -18,7 +18,7 @@ print(f"Connected to ElasticSearch cluster `{es.info().body['cluster_name']}`")
 #         }
 #         es.index(index="cars", document=document)
 
-with open('./scrapped.json') as f:
+with open('./withlinks.json') as f:
     data = json.load(f)
 
 docs = data["key"]
@@ -27,6 +27,7 @@ for doc in docs:
     document = {
         "headings" : doc["headings"],
         "subheadings" : doc["subheadings"],
-        "paras" : doc["paras"]
+        "paras" : doc["paras"],
+        "link" : doc["link"]
     }
-    es.index(index="scififilms", document=document)
+    es.index(index="scififilms2", document=document)

@@ -24,7 +24,7 @@
                 .then((data) => {
                         $('.results').empty();
                         for (let i = 0; i < data.length; i++) {
-                                $('.results').append(`<li>${data[i]}</li>`)
+                                $('.results').append(`<li><a href = ${data[i][1]} >${data[i][0]}</li>`)
                         }
                       })
       }

@@ -22,7 +22,9 @@ def search_autocomplete():
     clauses = [
         {
             "span_multi": {
-                "match": {"fuzzy": {"name": {"value": i, "fuzziness": "AUTO"}}}
+                "match": {"fuzzy": {"headings": {"value": i, "fuzziness": "AUTO"}}},
+                "match": {"fuzzy": {"subheadings": {"value": i, "fuzziness": "AUTO"}}},
+                "match": {"fuzzy": {"paras": {"value": i, "fuzziness": "AUTO"}}},
             }
         }
         for i in tokens
@@ -34,8 +36,16 @@ def search_autocomplete():
         }
     }
 
-    resp = es.search(index="cars", query=payload, size=MAX_SIZE)
-    return [result['_source']['name'] for result in resp['hits']['hits']]
+    resp = es.search(index="scififilms2", query=payload, size=MAX_SIZE)
+    # print(resp)
+    resultlist = []
+    for result in resp['hits']['hits']:
+        res = []
+        res.append(result['_source']['headings'])
+        res.append(result['_source']['link'])
+        resultlist.append(res)
+    return resultlist
+    # return [result['_source']['link'] for result in resp['hits']['hits']]
 
 
 if __name__ == "__main__":
