@@ -5,6 +5,13 @@
   </head>
   <body>
     <input class="search-box">
+    <form method="POST" action="/search">
+      <select name="ranker" id="ranker">
+        <option value="BM25">BM25</option>
+        <option value="TFIDF">TFIDF</option>
+      </select> 
+    </form>
+
     <ul class="results"></ul>
     <script>
       $(document).ready(function() {

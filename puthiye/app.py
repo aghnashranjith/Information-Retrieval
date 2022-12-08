@@ -16,8 +16,11 @@ def home():
 @app.route("/search")
 def search_autocomplete():
     query = request.args["q"].lower()
-    print(request.args)
+    # print(request.args)
     tokens = query.split(" ")
+
+    ranking_fn = request.form.get('ranker')
+    print(ranking_fn)
 
     clauses = [
         {
