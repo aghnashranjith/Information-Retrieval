@@ -19,8 +19,14 @@ def search_autocomplete():
     # print(request.args)
     tokens = query.split(" ")
 
-    ranking_fn = request.form.get('ranker')
-    print(ranking_fn)
+    # ranking_fn = request.form.gzet('ranker')
+    # print(ranking_fn)
+
+    ranker = 1
+    if ranker == 1:
+        indexx = "scififilms2"
+    else:
+        indexx = "scififilms3"
 
     clauses = [
         {
@@ -39,7 +45,7 @@ def search_autocomplete():
         }
     }
 
-    resp = es.search(index="scififilms2", query=payload, size=MAX_SIZE)
+    resp = es.search(index=indexx, query=payload, size=MAX_SIZE)
     # print(resp)
     resultlist = []
     for result in resp['hits']['hits']:
