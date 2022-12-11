@@ -21,8 +21,12 @@ def search_autocomplete():
 
     # ranking_fn = request.form.gzet('ranker')
     # print(ranking_fn)
+    if(value=='BM25'):
+         ranker = 1
+    else: 
+        ranker = 0
 
-    ranker = 1
+    
     if ranker == 1:
         indexx = "scififilms2"
     else:

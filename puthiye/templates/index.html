@@ -10,6 +10,7 @@
         <option value="BM25">BM25</option>
         <option value="TFIDF">TFIDF</option>
       </select> 
+    <button type = "submit" onclick = "grabrank()">Submit</button>
     </form>
 
     <ul class="results"></ul>
@@ -34,6 +35,15 @@
                                 $('.results').append(`<li><a href = ${data[i][1]} >${data[i][0]}</li>`)
                         }
                       })
+      }
+
+    </script>
+    <script type = "text/javascript">
+      function grabrank()
+      {
+        var rank = document.getElementById("ranker");
+        var value = rank.value;
+        //document.write(value);
       }
     </script>
   </body>
