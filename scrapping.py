@@ -32,7 +32,7 @@ bfsq.put(url_link)
 literally_all_links = []
 
 while bfsq.empty() is not True:
-  if len(literally_all_links) > 25: break 
+  if len(literally_all_links) > 1200: break 
   link = bfsq.get()
   literally_all_links.append(link)
   links = getLinks(link)
